@@ -1,0 +1,47 @@
+{
+    "primerCuatrimestre": [
+      {
+        "descripcion": "Finanzas",
+        "monto": 0
+      },
+      {
+        "descripcion": "Matemática",
+        "monto": 0
+      },
+      {
+        "descripcion": "Estadística",
+        "monto": 0
+      },
+      {
+        "descripcion": "Tecnología",
+        "monto": 0
+      },
+      {
+        "descripcion": "Historia",
+        "monto": 0
+      }
+    ],
+    "segundoCuatrimestre": [
+      {
+        "descripcion": "Finanzas",
+        "monto": 0
+      },
+      {
+        "descripcion": "Matemática",
+        "monto": 0
+      },
+      {
+        "descripcion": "Estadística",
+        "monto": 0
+      },
+      {
+        "descripcion": "Tecnología",
+        "monto": 0
+      },
+      {
+        "descripcion": "Historia",
+        "monto": 0
+      }
+    ]
+  }
+  

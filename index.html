@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad Crypto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header class="position-fixed top-0 w-100">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">UNIVERSIDAD CRYPTO</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link"href="#" id="guardarDatos">Guardar Datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"href="#" id="cargarDatos">Cargar Datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="borrarDatos">Reiniciar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+<!-- SEPARADOR PRIMER CUATRIMESTRE -->
+<section class="inputs">
+    <article class="pCuatri">
+        <h2>Materias Primer Cuatrimestre</h2>
+        <div class="mb-3">
+            <label for="selectMateria01" class="form-label"></label>
+            <select class="form-control" id="selectMateria01">
+                <option value="" disabled selected>Seleccione la materia</option>
+                <option value="Finanzas">Finanzas</option>
+                <option value="Matematica">Matemática</option>
+                <option value="Estadistica">Estadística</option>
+                <option value="Tecnologia">Tecnología</option>
+                <option value="Historia">Historia</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="notaMateria01" class="form-label">Nota</label>
+            <input class="form-control" type="number" id="notaMateria01">
+        </div>
+        <div>
+            <button type="submit" class="btn" id="btnMaterias01">Agregar Nota</button>
+        </div>
+        <div>
+            <ul id="listaMaterias01"></ul>
+        </div>
+    </article>
+    <!-- SEPARADOR SEGUNDO CUATRIMESTRE -->
+    <article class="sCuatri">
+        <h2>Materias Segundo Cuatrimestre</h2>
+        <div class="mb-3">
+            <label for="selectMateria01" class="form-label"></label>
+            <select class="form-control" id="selectMateria02">
+                <option value="" disabled selected>Seleccione la materia</option>
+                <option value="Finanzas">Finanzas</option>
+                <option value="Matematica">Matemática</option>
+                <option value="Estadistica">Estadística</option>
+                <option value="Tecnologia">Tecnología</option>
+                <option value="Historia">Historia</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="notaMateria02" class="form-label">Nota</label>
+            <input class="form-control" type="number" id="notaMateria02">
+        </div>
+        <div>
+            <button type="submit" class="btn" id="btnMateria02">Agregar Nota</button>
+        </div>
+        <div>
+            <ul id="listaMaterias02"></ul>
+        </div>
+    </article>
+    <div>
+        <ul class="lista"></ul>
+    </div>
+</section>
+        <section class="promedios">
+            <article class="totalPromedios01">
+                <h3>Promedio Primer Cuatrimestre</h3>
+                <p id="promedioPCuatri"></p>
+            </article>
+            <article class="totalPromedios02">
+                <h3>Promedio Segundo Cuatrimestre</h3>
+                <p id="promedioSCuatri"></p>
+            </article>
+        </section>
+    </main>
+    <div>
+        <button type="button" id="calcularPromedioAnual">Calcular Promedio Anual</button>
+        <div id="mensajeVacaciones"></div>    
+    </div>
+    <footer>
+        <ul class="social-icons">
+            <li><a href="https://github.com/AgustinTome/" target="_blank"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/tomeagustinarq/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://twitter.com/SonLenonidas" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+        <div class="copyright">
+          © 2023 Universidad Crypto
+        </div>
+      </footer>
+    <script> document.getElementById("selectMateria01").addEventListener("change", function() {
+            if (this.value === "") {
+                this.selectedIndex = -1;
+            }
+        });</script>
+    <script> document.getElementById("selectMateria02").addEventListener("change", function() {
+            if (this.value === "") {
+                this.selectedIndex = -1;
+            }
+        });</script>
+    <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
