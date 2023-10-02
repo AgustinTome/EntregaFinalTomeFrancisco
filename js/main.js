@@ -193,79 +193,45 @@ btnCalcularPromedioAnual.addEventListener('click', function () {
     });
 });
 
-// Función para guardar datos en el archivo JSON
-function guardarDatosEnJSON() {
-    const data = {
-        primerCuatrimestre: pCuatri,
-        segundoCuatrimestre: sCuatri,
-    };
+// Función para obtener el precio de una criptomoneda desde la API y actualizarlo en el DOM
+function obtenerPrecioCriptomoneda(criptomonedaId, precioElementId) {
+    // Moneda en la que deseas obtener el precio (por ejemplo, USD)
+    const vsCurrency = "usd";
 
-    // Convertir los datos a formato JSON
-    const jsonData = JSON.stringify(data);
+    // URL de la API para obtener el precio de la criptomoneda específica
+    const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${criptomonedaId}&vs_currencies=${vsCurrency}`;
 
-    // Utilizar una función de servidor o técnica para guardar los datos en el archivo JSON
-    // Esto puede variar según el entorno de tu aplicación
-
-    // Ejemplo de cómo guardar los datos utilizando Fetch
-    fetch('guardarDatos.php', {
-        method: 'POST',
-        body: jsonData,
-    })
-    .then(response => response.json())
-    .then(result => {
-        if (result.success) {
-            Swal.fire({
-                title: "Guardado",
-                text: "Los datos se han guardado correctamente en el archivo JSON.",
-                icon: "success",
-                confirmButtonText: "OK"
-            });
-        } else {
-            Swal.fire({
-                title: "Error",
-                text: "No se pudieron guardar los datos en el archivo JSON.",
-                icon: "error",
-                confirmButtonText: "OK"
-            });
-        }
-    })
-    .catch(error => {
-        console.error('Error al guardar los datos en el archivo JSON:', error);
-    });
-}
-
-// Llamar a la función para guardar los datos en el archivo JSON
-guardarDatosEnJSON();
-
-// 12.00 Cargar datos desde archivo JSON utilizando Fetch
-function cargarDatosDesdeJSON() {
-    fetch('js/data.json')
+    // Realiza la solicitud GET
+    fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            // Limpiar las listas de materias y promedios
-            pCuatri = [];
-            sCuatri = [];
-            contadorMateriasPCuatri = 0;
-            contadorMateriasSCuatri = 0;
-            actualizarPromedio(pCuatri, 'promedioPCuatri');
-            actualizarPromedio(sCuatri, 'promedioSCuatri');
-            mostrarMaterias(pCuatri, 'listaMaterias01');
-            mostrarMaterias(sCuatri, 'listaMaterias02');
-
-            // Procesar los datos y agregarlos a los cuatrimestres si existen
-            if (data.primerCuatrimestre && data.segundoCuatrimestre) {
-                pCuatri = data.primerCuatrimestre;
-                contadorMateriasPCuatri = pCuatri.length;
-                actualizarPromedio(pCuatri, 'promedioPCuatri');
-                mostrarMaterias(pCuatri, 'listaMaterias01');
-
-                sCuatri = data.segundoCuatrimestre;
-                contadorMateriasSCuatri = sCuatri.length;
-                actualizarPromedio(sCuatri, 'promedioSCuatri');
-                mostrarMaterias(sCuatri, 'listaMaterias02');
-            }
+            // Actualiza el precio de la criptomoneda en el DOM
+            const precio = data[criptomonedaId].usd;
+            document.getElementById(precioElementId).textContent = `$${precio.toFixed(2)}`;
         })
         .catch(error => {
-            console.error('Error al cargar los datos:', error);
+            console.error(`Error al obtener el precio de ${criptomonedaId}:`, error);
         });
 }
+// Evento de clic para actualizar el precio de Bitcoin
+const btnUpdateBitcoinPrice = document.getElementById('updateBitcoinPrice');
+btnUpdateBitcoinPrice.addEventListener('click', function () {
+    obtenerPrecioCriptomoneda('bitcoin', 'bitcoinPrice');
+});
+
+// Evento de clic para actualizar el precio de Ethereum
+const btnUpdateEthereumPrice = document.getElementById('updateEthereumPrice');
+btnUpdateEthereumPrice.addEventListener('click', function () {
+    obtenerPrecioCriptomoneda('ethereum', 'ethereumPrice');
+});
+
+// Evento de clic para actualizar el precio de Binance Coin
+const btnUpdateBinanceCoinPrice = document.getElementById('updateBinanceCoinPrice');
+btnUpdateBinanceCoinPrice.addEventListener('click', function () {
+    obtenerPrecioCriptomoneda('binancecoin', 'binanceCoinPrice');
+});
+
+// Llamar a las funciones para obtener los precios iniciales
+obtenerPrecioCriptomoneda('bitcoin', 'bitcoinPrice');
+obtenerPrecioCriptomoneda('ethereum', 'ethereumPrice');
+obtenerPrecioCriptomoneda('binancecoin', 'binanceCoinPrice');

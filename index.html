@@ -38,62 +38,89 @@
             </div>
         </nav>
     </header>
-    <main>
-<!-- SEPARADOR PRIMER CUATRIMESTRE -->
-<section class="inputs">
-    <article class="pCuatri">
-        <h2>Materias Primer Cuatrimestre</h2>
-        <div class="mb-3">
-            <label for="selectMateria01" class="form-label"></label>
-            <select class="form-control" id="selectMateria01">
-                <option value="" disabled selected>Seleccione la materia</option>
-                <option value="Finanzas">Finanzas</option>
-                <option value="Matematica">Matemática</option>
-                <option value="Estadistica">Estadística</option>
-                <option value="Tecnologia">Tecnología</option>
-                <option value="Historia">Historia</option>
-            </select>
+
+    <div id="cryptoPrices" class="crypto-container">
+        <div class="crypto-row">
+            <div class="crypto-item">
+                <div class="crypto-box">
+                    <h3>Bitcoin</h3>
+                    <p id="bitcoinPrice" class="crypto-price">$0.00</p>
+                    <button id="updateBitcoinPrice" class="btn-actualizar">Actualizar</button>
+                </div>
+            </div>
+            <div class="crypto-item hidden-box">
+                <div class="crypto-box">
+                    <h3>Ethereum</h3>
+                    <p id="ethereumPrice" class="crypto-price">$0.00</p>
+                    <button id="updateEthereumPrice" class="btn-actualizar">Actualizar</button>
+                </div>
+            </div>
+            <div class="crypto-item hidden-box">
+                <div class="crypto-box">
+                    <h3>Binance Coin</h3>
+                    <p id="binanceCoinPrice" class="crypto-price">$0.00</p>
+                    <button id="updateBinanceCoinPrice" class="btn-actualizar">Actualizar</button>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="notaMateria01" class="form-label">Nota</label>
-            <input class="form-control" type="number" id="notaMateria01">
-        </div>
-        <div>
-            <button type="submit" class="btn" id="btnMaterias01">Agregar Nota</button>
-        </div>
-        <div>
-            <ul id="listaMaterias01"></ul>
-        </div>
-    </article>
-    <!-- SEPARADOR SEGUNDO CUATRIMESTRE -->
-    <article class="sCuatri">
-        <h2>Materias Segundo Cuatrimestre</h2>
-        <div class="mb-3">
-            <label for="selectMateria01" class="form-label"></label>
-            <select class="form-control" id="selectMateria02">
-                <option value="" disabled selected>Seleccione la materia</option>
-                <option value="Finanzas">Finanzas</option>
-                <option value="Matematica">Matemática</option>
-                <option value="Estadistica">Estadística</option>
-                <option value="Tecnologia">Tecnología</option>
-                <option value="Historia">Historia</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="notaMateria02" class="form-label">Nota</label>
-            <input class="form-control" type="number" id="notaMateria02">
-        </div>
-        <div>
-            <button type="submit" class="btn" id="btnMateria02">Agregar Nota</button>
-        </div>
-        <div>
-            <ul id="listaMaterias02"></ul>
-        </div>
-    </article>
-    <div>
-        <ul class="lista"></ul>
     </div>
-</section>
+
+    <main>
+        <!-- SEPARADOR PRIMER CUATRIMESTRE -->
+        <section class="inputs">
+            <article class="pCuatri">
+                <h2>Materias Primer Cuatrimestre</h2>
+                <div class="mb-3">
+                    <label for="selectMateria01" class="form-label"></label>
+                    <select class="form-control" id="selectMateria01">
+                        <option value="" disabled selected>Seleccione la materia</option>
+                        <option value="Finanzas">Finanzas</option>
+                        <option value="Matematica">Matemática</option>
+                        <option value="Estadistica">Estadística</option>
+                        <option value="Tecnologia">Tecnología</option>
+                        <option value="Historia">Historia</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="notaMateria01" class="form-label">Nota</label>
+                    <input class="form-control" type="number" id="notaMateria01">
+                </div>
+                <div>
+                    <button type="submit" class="btn" id="btnMaterias01">Agregar Nota</button>
+                </div>
+                <div>
+                    <ul id="listaMaterias01"></ul>
+                </div>
+            </article>
+            <!-- SEPARADOR SEGUNDO CUATRIMESTRE -->
+            <article class="sCuatri">
+                <h2>Materias Segundo Cuatrimestre</h2>
+                <div class="mb-3">
+                    <label for="selectMateria01" class="form-label"></label>
+                    <select class="form-control" id="selectMateria02">
+                        <option value="" disabled selected>Seleccione la materia</option>
+                        <option value="Finanzas">Finanzas</option>
+                        <option value="Matematica">Matemática</option>
+                        <option value="Estadistica">Estadística</option>
+                        <option value="Tecnologia">Tecnología</option>
+                        <option value="Historia">Historia</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="notaMateria02" class="form-label">Nota</label>
+                    <input class="form-control" type="number" id="notaMateria02">
+                </div>
+                <div>
+                    <button type="submit" class="btn" id="btnMateria02">Agregar Nota</button>
+                </div>
+                <div>
+                    <ul id="listaMaterias02"></ul>
+                </div>
+            </article>
+            <div>
+                <ul class="lista"></ul>
+            </div>
+        </section>
         <section class="promedios">
             <article class="totalPromedios01">
                 <h3>Promedio Primer Cuatrimestre</h3>
@@ -105,10 +132,12 @@
             </article>
         </section>
     </main>
+
     <div>
         <button type="button" id="calcularPromedioAnual">Calcular Promedio Anual</button>
         <div id="mensajeVacaciones"></div>    
     </div>
+
     <footer>
         <ul class="social-icons">
             <li><a href="https://github.com/AgustinTome/" target="_blank"><i class="fa fa-github"></i></a></li>
@@ -118,7 +147,8 @@
         <div class="copyright">
           © 2023 Universidad Crypto
         </div>
-      </footer>
+    </footer>
+
     <script> document.getElementById("selectMateria01").addEventListener("change", function() {
             if (this.value === "") {
                 this.selectedIndex = -1;
